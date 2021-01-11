@@ -57,6 +57,19 @@ public class MaxPQ<Key extends Comparable<Key>> {
         pq[j] = t;
     }
 
+    /***/
+    public static void sort(Comparable[] a)
+    {
+        int N = a.length;
+        for (int k = N/2; k >= 1; k--) { // 构造堆
+            sink(a, k, N);
+        }
+        while (N > 1) { // 后 while 循环将最大的元素 a[1] 和a[N] 交换并修复了堆，如此重复直到堆变空
+            exch(a, 1, N--);
+            sink(a, 1, N);
+        }
+    }
+
     public static void main(String [] args) {
 
     }
